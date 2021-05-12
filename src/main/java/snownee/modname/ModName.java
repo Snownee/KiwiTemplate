@@ -7,6 +7,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 @EventBusSubscriber
 public final class ModName {
 
-    public static final String MODID = "modname";
+	public static final String MODID = "modname";
 
 }

@@ -1,5 +1,7 @@
 modLoader="javafml"
-loaderVersion="[31,)"
+loaderVersion="[36,)"
+license="ARR"
+
 [[mods]]
 modId="modname"
 version="${file.jarVersion}"
@@ -11,6 +13,6 @@ description=""
 [[dependencies.modname]]
     modId="kiwi"
     mandatory=true
-    versionRange="[2.7, 2.11)"
+    versionRange="[3.5, 3.11)"
     ordering="BEFORE"
     side="BOTH"

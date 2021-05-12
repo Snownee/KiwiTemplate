@@ -9,27 +9,27 @@ import net.minecraftforge.fml.config.ModConfig;
 
 public final class ModNameCommonConfig {
 
-    public static final ForgeConfigSpec spec;
+	public static final ForgeConfigSpec spec;
 
-    public static boolean debug = true;
+	public static boolean debug = true;
 
-    private static BooleanValue debugVal;
+	private static BooleanValue debugVal;
 
-    static {
-        spec = new ForgeConfigSpec.Builder().configure(ModNameCommonConfig::new).getRight();
-    }
+	static {
+		spec = new ForgeConfigSpec.Builder().configure(ModNameCommonConfig::new).getRight();
+	}
 
-    private ModNameCommonConfig(ForgeConfigSpec.Builder builder) {
-        debugVal = builder.define("debugMode", debug);
-    }
+	private ModNameCommonConfig(ForgeConfigSpec.Builder builder) {
+		debugVal = builder.define("debugMode", debug);
+	}
 
-    public static void refresh() {
-        debug = debugVal.get();
-    }
+	public static void refresh() {
+		debug = debugVal.get();
+	}
 
-    @SubscribeEvent
-    public static void onFileChange(ModConfig.Reloading event) {
-        ((CommentedFileConfig) event.getConfig().getConfigData()).load();
-        refresh();
-    }
+	@SubscribeEvent
+	public static void onFileChange(ModConfig.Reloading event) {
+		((CommentedFileConfig) event.getConfig().getConfigData()).load();
+		refresh();
+	}
 }

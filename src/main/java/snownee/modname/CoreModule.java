@@ -11,19 +11,19 @@ import snownee.kiwi.KiwiModule;
 @KiwiModule
 public class CoreModule extends AbstractModule {
 
-    public CoreModule() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModNameCommonConfig.spec);
-        modEventBus.register(ModNameCommonConfig.class);
-        // if (FMLEnvironment.dist.isClient()) {
-        //     ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModNameClientConfig.spec);
-        //     modEventBus.register(ModNameClientConfig.class);
-        // }
-    }
+	public CoreModule() {
+		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModNameCommonConfig.spec);
+		modEventBus.register(ModNameCommonConfig.class);
+		// if (FMLEnvironment.dist.isClient()) {
+		//     ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModNameClientConfig.spec);
+		//     modEventBus.register(ModNameClientConfig.class);
+		// }
+	}
 
-    @Override
-    protected void init(FMLCommonSetupEvent event) {
-        ModNameCommonConfig.refresh();
-    }
+	@Override
+	protected void init(FMLCommonSetupEvent event) {
+		ModNameCommonConfig.refresh();
+	}
 
 }

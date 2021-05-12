@@ -30,7 +30,7 @@ minecraft {
     // stable_#            Stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'snapshot', version: '20200304-1.15.1'
+    mappings channel: 'snapshot', version: '20210309-1.16.5'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -85,6 +85,8 @@ repositories {
         name = "jei"
         url = "https://dvs1.progwml6.com/files/maven"
     }
+	maven { url='https://repo.spongepowered.org/repository/maven-public/' }
+	maven { url = "https://www.cursemaven.com" }
 }
 
 dependencies {
@@ -93,9 +95,10 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    compile fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
-	
-    compile files("Kiwi-${minecraft_version}-${kiwi_version}-deobf.jar")
+    compileOnly fg.deobf("mezz.jei:jei-1.16.5:7.6.4.86:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.16.5:7.6.4.86")
+
+    implementation fg.deobf("curse.maven:kiwi-303657:3298561")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
